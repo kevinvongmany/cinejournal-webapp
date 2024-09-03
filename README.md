@@ -1,6 +1,9 @@
-# Module 14 Mini-Project: Crowdfunding App
+# Module 14 Mini-Project: CineJournal App
 
 In this mini-project, you will work with a group to build a full-stack crowdfunding app using Node.js, Express.js, Sequelize, Handlebars.js, and MVC architecture.
+
+## Example Front-End
+![Example user-journey](./assets/images/cinejournal%20example.jpg)
 
 ## User Stories
 
