@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Entry extends Model {}
 
-Project.init(
+Entry.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,20 +11,20 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    media_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 1,
+        max: 5,
+      },
     },
-    date_created: {
+    watched_ts: {
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
       allowNull: false,
     },
     user_id: {
@@ -34,14 +34,21 @@ Project.init(
         key: 'id',
       },
     },
+    platform_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'platform',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'entries',
   }
 );
 
-module.exports = Project;
+module.exports = Entry;
