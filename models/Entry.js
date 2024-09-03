@@ -30,14 +30,14 @@ Entry.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'users',
         key: 'id',
       },
     },
     platform_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'platform',
+        model: 'platforms',
         key: 'id',
       },
     },
