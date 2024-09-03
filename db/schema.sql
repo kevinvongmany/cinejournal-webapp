@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS cinejournal_db;
-CREATE DATABASE cinejournal_db;
+DROP DATABASE IF EXISTS crowdfund_db;
+CREATE DATABASE crowdfund_db;
