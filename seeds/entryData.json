@@ -1,0 +1,66 @@
+[
+  {
+      "id": 1,
+      "media_title": "Inception",
+      "rating": 5,
+      "watched_ts": "2023-09-01",
+      "user_id": 1,
+      "platform_id": 1
+  },
+  {
+      "id": 2,
+      "media_title": "The Boys",
+      "rating": 4,
+      "watched_ts": "2023-09-02",
+      "user_id": 2,
+      "platform_id": 2
+  },
+  {
+      "id": 3,
+      "media_title": "Stranger Things",
+      "rating": 5,
+      "watched_ts": "2023-09-03",
+      "user_id": 3,
+      "platform_id": 1
+  },
+  {
+      "id": 4,
+      "media_title": "The Mandalorian",
+      "rating": 4,
+      "watched_ts": "2023-09-04",
+      "user_id": 4,
+      "platform_id": 4
+  },
+  {
+      "id": 5,
+      "media_title": "The Handmaid's Tale",
+      "rating": 5,
+      "watched_ts": "2023-09-05",
+      "user_id": 1,
+      "platform_id": 5
+  },
+  {
+      "id": 6,
+      "media_title": "Breaking Bad",
+      "rating": 5,
+      "watched_ts": "2023-09-06",
+      "user_id": 2,
+      "platform_id": 1
+  },
+  {
+      "id": 7,
+      "media_title": "WandaVision",
+      "rating": 4,
+      "watched_ts": "2023-09-07",
+      "user_id": 3,
+      "platform_id": 4
+  },
+  {
+      "id": 8,
+      "media_title": "The Office",
+      "rating": 5,
+      "watched_ts": "2023-09-08",
+      "user_id": 4,
+      "platform_id": 3
+  }
+]
