@@ -25,7 +25,6 @@ Entry.init(
     },
     watched_ts: {
       type: DataTypes.DATE,
-      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -40,6 +39,11 @@ Entry.init(
         model: 'platforms',
         key: 'id',
       },
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
   },
   {
