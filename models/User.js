@@ -17,11 +17,11 @@ User.init(
       allowNull: false,
       unique: true
     },
-    firstName: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    lastName: {
+    last_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
