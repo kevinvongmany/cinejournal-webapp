@@ -2,8 +2,46 @@
 
 In this mini-project, you will work with a group to build a full-stack crowdfunding app using Node.js, Express.js, Sequelize, Handlebars.js, and MVC architecture.
 
-## Example Front-End
-![Example user-journey](./assets/images/cinejournal%20example.jpg)
+### Authored by Group 4 
+[Kevin](https://github.com/kevinvongmany/), [Wendy](https://github.com/Wendyydxiao), [June](https://github.com/Lijujujune) & [Kate](https://github.com/KateHanSta17)
+
+## Description
+
+CineJournal is a digital journal to track your viewing history of Movies & Television Shows that you watch across multiple platforms; by title, date viewed, where viewed and rating.
+The app will save your viewed history, allow you to view and continue to add new media as you view your way through your watch list. 
+The app uses [packages] & [frameworks] further outlined belo and the UI/UX was designed using Miro.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+Provide step-by-step instructions on how to set up and install the project on a local machine.
+
+## Example User-Journey
+![Early Concept and UI design](./assets/images/cinejournal%20example.jpg)
+* [Link to original Miro Board](https://miro.com/app/board/uXjVKj-YzjQ=/)
+
+## Usage
+
+```bash
+# Clone the repository
+git clone https://github.com/kevinvongmany/cinejournal-webapp
+
+# Navigate to the project directory
+cd cinejournal-webapp
+
+# Install dependencies
+npm install
+```
+
+-----------------------------
 
 ## User Stories
 
