@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Movie</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://pryley.github.io/star-rating.js/dist/star-rating.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/form.css"/>
+
+</head>
+
+<header>
+    
+</header>
+
+<body>
+    <div class="container-custom">
+        <div class="profile-header">
+            <img src="/assets/images/profile.png" alt="Profile Picture" class="profile-picture">
+            <p class="h5 mb-1">User First Name</p>
+        </div>
+        <div class="mt-4">
+            <h1 class="h4">Add Movie/TV Show</h1>
+            <button class="btn btn-primary mb-3">View Your Watched List</button>
+            <form>
+                <div class="form-group">
+                    <label for="media-title">Media Name</label>
+                    <input type="text" class="form-control" id="movie-title" placeholder="Input Movie/TV show title...">
+                </div>
+                <div class="form-group">
+                    <label for="streaming-platform">Watched On (Streaming Platform)</label>
+                    <select class="form-control" id="streaming-platform">
+                        <option>None</option>
+                        <option>Netflix</option>
+                        <option>Amazon Prime</option>
+                        <option>Hulu</option>
+                        <option>Disney+</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="watch-date">Date of Watching</label>
+                    <input type="date" class="form-control" id="watch-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <select class="gl-star-rating--stars">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://pryley.github.io/star-rating.js/dist/star-rating.min.js"></script>
+    <script src="/public/js/form.js"></script>
+
+</body>
+</html>
