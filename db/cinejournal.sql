@@ -16,7 +16,7 @@ CREATE TABLE "entries" (
 	"rating" INTEGER,
 	"watched_ts" TIMESTAMP,
 	"user_id" INTEGER,
-	"platform_id" INTEGER NOT NULL,
+	"platform_id" INTEGER,
 	PRIMARY KEY("id")
 );
 
