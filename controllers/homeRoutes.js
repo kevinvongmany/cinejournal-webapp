@@ -1,82 +1,78 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { User, Platform, Entry } = require('../../models');
+const withAuth = require('../../utils/auth');
 
+// Home Route (GET /)
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    // Fetch all users, platforms, and entries from the database
+    const users = await User.findAll();
+    const platforms = await Platform.findAll();
+    const entries = await Entry.findAll();
 
-    // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      projects, 
-      logged_in: req.session.logged_in 
+    // Render a combined JSON response with all data
+    res.status(200).json({
+      users,
+      platforms,
+      entries,
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ message: 'Failed to load home data', error: err });
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+// Get a user and their entries (GET /users/:id)
+router.get('/users/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    const userData = await User.findByPk(req.params.id, {
+      include: [{ model: Entry }],
     });
 
-    const project = projectData.get({ plain: true });
+    if (!userData) {
+      res.status(404).json({ message: 'No user found with this id' });
+      return;
+    }
 
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in
-    });
+    res.status(200).json(userData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ message: 'Failed to get user', error: err });
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+// Get a platform and its entries (GET /platforms/:id)
+router.get('/platforms/:id', async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+    const platformData = await Platform.findByPk(req.params.id, {
+      include: [{ model: Entry }],
     });
 
-    const user = userData.get({ plain: true });
+    if (!platformData) {
+      res.status(404).json({ message: 'No platform found with this id' });
+      return;
+    }
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
+    res.status(200).json(platformData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ message: 'Failed to get platform', error: err });
   }
 });
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
+// Get an entry (GET /entries/:id)
+router.get('/entries/:id', async (req, res) => {
+  try {
+    const entryData = await Entry.findByPk(req.params.id, {
+      include: [{ model: User }, { model: Platform }],
+    });
 
-  res.render('login');
+    if (!entryData) {
+      res.status(404).json({ message: 'No entry found with this id' });
+      return;
+    }
+
+    res.status(200).json(entryData);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to get entry', error: err });
+  }
 });
 
 module.exports = router;
