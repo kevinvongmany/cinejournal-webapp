@@ -9,7 +9,6 @@ const signupFormHandler = async (event) => {
 
   if (firstName && lastName && email && password) {
     if (password === passwordConfirm) {
-      console.log(firstName, lastName, email, password);
       const response = await fetch('/api/users/register', {
         method: 'POST',
         body: JSON.stringify({ first_name: firstName, last_name: lastName, email, password }),
