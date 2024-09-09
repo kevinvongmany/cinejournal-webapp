@@ -1,0 +1,123 @@
+/* Ensure the same fonts are applied */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather Sans', sans-serif; /* Use the same default font as login page */
+}
+
+.container-custom {
+    max-width: 375px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /* Makes the container fill the height of the viewport */
+}
+
+/* Profile header remains the same */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    background-image: url('/assets/images/formbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 150px;
+    color: white;
+    font-family: 'Merriweather', serif; /* Use the same font for headers */
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Media list container */
+.media-list {
+    margin-top: 20px;
+}
+
+/* Individual media card styling */
+.media-card {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media card titles and details */
+.media-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: 'Merriweather', serif; /* Apply Merriweather for titles */
+}
+
+.media-details {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+    font-family: 'Merriweather Sans', sans-serif; /* Apply Merriweather Sans for details */
+}
+
+/* Bottom section containing the Add New button and Log Out link */
+.bottom-section {
+    margin-top: 20px;
+}
+
+/* Style the Add New button */
+.bottom-section .btn {
+    background-color: #5a67d8;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Merriweather Sans', sans-serif; /* Ensure the button text matches other buttons */
+}
+
+/* Style the log out link */
+.logout-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.logout-link a {
+    color: #5a67d8;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.logout-link a:hover {
+    text-decoration: underline;
+}
+
+/* Yellow stars for ratings */
+.gl-star-rating--stars option:checked ~ .gl-star-rating--stars label:before {
+    color: yellow !important;
+}
+
+.gl-star-rating--stars option:checked {
+    color: yellow !important;
+}
+
+.gl-star-rating--stars:hover label:before {
+    color: yellow !important;
+}
+
+/* Adjustments for different screen sizes */
+@media (min-width: 576px) {
+    .container-custom {
+        padding: 30px;
+    }
+}
