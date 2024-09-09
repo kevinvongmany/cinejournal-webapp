@@ -8,7 +8,12 @@ const signupFormHandler = async (event) => {
   const passwordConfirm = document.querySelector('#password-confirm').value.trim();
 
   if (firstName && lastName && email && password) {
-    if (password === passwordConfirm) {
+    if (!password === passwordConfirm) {
+      alert('Passwords do not match, please try again');
+    } else if (password.length < 8) {
+      alert('Password must be at least 8 characters long');
+
+    } else {
       const response = await fetch('/api/users/register', {
         method: 'POST',
         body: JSON.stringify({ first_name: firstName, last_name: lastName, email, password }),
@@ -20,8 +25,6 @@ const signupFormHandler = async (event) => {
       } else {
         alert(response.statusText);
       }
-    } else {
-      alert('Passwords do not match, please try again');
     }
   }
 };

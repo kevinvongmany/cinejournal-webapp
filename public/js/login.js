@@ -1,5 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
+  console.log(event);
 
   // Collect values from the login form
   const email = document.querySelector('#email-login').value.trim();
@@ -12,10 +13,11 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log(response);
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      document.location.replace('/watchlist');
+      // If successful, redirect the browser to the watchlist page
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
