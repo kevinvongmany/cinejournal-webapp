@@ -1,3 +1,4 @@
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
   console.log(event);
@@ -19,8 +20,10 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the watchlist page
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      $('#login-error').toast('show');
     }
+  } else {
+    $('#login-warning').toast('show');
   }
 };
 
