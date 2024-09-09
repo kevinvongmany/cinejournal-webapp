@@ -21,6 +21,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+
 router.get('/login', async (req, res) => {
   try {
     res.render('login');
@@ -56,6 +57,5 @@ router.get('/watchlist', async (req, res) => {
     res.status(500).json({ message: 'Failed to load form page', error: err });
   }
 });
-
 
 module.exports = router;
