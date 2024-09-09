@@ -1,42 +1,24 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
+  <div class="profile-header">
+      <img src="/assets/images/profile.png" alt="Profile Picture" class="profile-picture">
+      <p class="h5 mb-1">Welcome to CineJournal</p>
   </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
-
-    <form class="form signup-form">
+  <div class="mt-4">
+      <h1 class="h4">Sign In</h1>
+    <form>
       <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
+        <label for="email-login">Email</label>
+        <input type="email" class="form-control" id="email-login" placeholder="Enter your email">
       </div>
       <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
+        <label for="password-login">Password</label>
+        <input class="form-input" type="password" id="password-login" placeholder="Enter your password">
       </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
+      <button type="submit" class="btn btn-primary btn-block">Sign In</button>
     </form>
+      <div class="mt-3">
+          <p>Don't have an account? <a href="/register">Sign Up</a></p>
+          {{!-- <p>Forgot your password? <a href="/forgot-password">Reset Password</a></p> --}}
+      </div>
   </div>
-</div>
 
-<script src="./js/login.js"></script>
