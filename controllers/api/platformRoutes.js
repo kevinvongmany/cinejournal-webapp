@@ -1,5 +1,24 @@
 const router = require('express').Router();
 const { Platform } = require('../../models');
+// const { Entry } = require('../../models');
+
+// // Get a platform and its entries (GET /platforms/:id)
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const platformData = await Platform.findByPk(req.params.id, {
+//       include: [{ model: Entry }],
+//     });
+
+//     if (!platformData) {
+//       res.status(404).json({ message: 'No platform found with this id' });
+//       return;
+//     }
+
+//     res.status(200).json(platformData);
+//   } catch (err) {
+//     res.status(500).json({ message: 'Failed to get platform', error: err });
+//   }
+// });
 
 // Create a new platform (POST /api/platforms)
 router.post('/', async (req, res) => {
