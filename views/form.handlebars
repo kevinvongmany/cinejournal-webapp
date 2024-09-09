@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="profile-header">
+        <img src="/assets/images/profile.png" alt="Profile Picture" class="profile-picture">
+        <p class="h5 mb-1">{{first_name}}</p>
+    </div>
+    <div class="mt-4">
+        <h1 class="h4">Add Movie/TV Show</h1>
+        <button class="btn btn-primary mb-3">View Your Watched List</button>
+        <form>
+            <div class="form-group">
+                <label for="media-title">Media Name</label>
+                <input type="text" class="form-control" id="media-title" placeholder="Input Movie/TV show title...">
+            </div>
+            <div class="form-group">
+                <label for="platform">Watched On </label>
+                <select class="form-control" id="platform">
+                    <option>None</option>
+                    <option>Netflix</option>
+                    <option>Amazon Prime</option>
+                    <option>Hulu</option>
+                    <option>Disney+</option>
+                    <option>Others</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="watched-date">Date of Watching</label>
+                <input type="date" class="form-control" id="watched-date">
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <select class="gl-star-rating--stars" id="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+                
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+</div>
