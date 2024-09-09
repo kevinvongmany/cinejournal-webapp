@@ -1,5 +1,34 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const { Entry } = require('../../models');
+
+// Get a user and their entries (GET /users/:id)
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      include: [{ model: Entry }],
+    });
+
+    if (!userData) {
+      res.status(404).json({ message: 'No user found with this id' });
+      return;
+    }
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to get user', error: err });
+  }
+});
+
+// Get all users (GET /api/users)
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll();
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to get users', error: err });
+  }
+});
 
 // create a new user (register)
 router.post('/register', async (req, res) => {
