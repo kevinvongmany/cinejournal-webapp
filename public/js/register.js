@@ -8,11 +8,10 @@ const signupFormHandler = async (event) => {
   const passwordConfirm = document.querySelector('#password-confirm').value.trim();
 
   if (firstName && lastName && email && password) {
-    if (!password === passwordConfirm) {
+    if (password !== passwordConfirm) {
       $('#password-mismatch').toast('show');
     } else if (password.length < 8) {
       $('#password-length').toast('show');
-
     } else {
       const response = await fetch('/api/users/register', {
         method: 'POST',
