@@ -8,21 +8,27 @@ const signupFormHandler = async (event) => {
   const passwordConfirm = document.querySelector('#password-confirm').value.trim();
 
   if (firstName && lastName && email && password) {
-    if (password === passwordConfirm) {
+    if (password !== passwordConfirm) {
+      $('#password-mismatch').toast('show');
+    } else if (password.length < 8) {
+      $('#password-length').toast('show');
+    } else {
       const response = await fetch('/api/users/register', {
         method: 'POST',
         body: JSON.stringify({ first_name: firstName, last_name: lastName, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
 
-      if (response.ok) {
+      if (response.status === 400) {
+        $('#register-exists').toast('show');
+      } else if (response.ok) {
         document.location.replace('/');
       } else {
-        alert(response.statusText);
+        $('#register-error').toast('show');
       }
-    } else {
-      alert('Passwords do not match, please try again');
     }
+  } else {
+    $('#register-warning').toast('show');
   }
 };
 
