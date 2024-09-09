@@ -1,4 +1,4 @@
-<body></body>
+    <link rel="stylesheet" href="/css/watchlist.css">
     <div class="container-custom">
         <!-- Profile Header -->
         <div class="profile-header">
@@ -7,7 +7,33 @@
         </div>
 
         <!-- Media List (media cards will be populated here by JavaScript) -->
-        <div class="media-list mt-4"></div>
+        <div class="media-list mt-4">
+            {{!-- loop --}}
+            <div class="media-card">
+
+                {{!-- replace Title with handlebars data --}}
+                <h5 class="media-title">Title</h5> 
+                {{!-- replace Netflix with hbars data --}}
+                <p class="media-details">Watched on: Netflix</p>
+                {{!-- replace date --}}
+                <p class="media-details">Date: 20/09/2024</p>
+                <div class="media-details">
+                    {{!-- figure this out later --}}
+                    <label>Rating:</label>
+                    <div class="gl-star-rating">
+                        <select class="gl-star-rating--stars" data-rating="5">
+                            <option value="1" selected="">1</option>
+                            <option value="2" selected="">2</option>
+                            <option value="3" selected="">3</option>
+                            <option value="4" selected="">4</option>
+                            <option value="5" selected="">5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            {{!-- loop end --}}
+        </div>
 
         <!-- Add New and Log Out section -->
         <div class="bottom-section">
@@ -17,3 +43,4 @@
             </div>
         </div>
     </div>
+    {{!-- <script src="/js/watchlist.js"></script> --}}
