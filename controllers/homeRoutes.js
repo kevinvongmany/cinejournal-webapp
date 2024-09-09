@@ -20,4 +20,42 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: 'Failed to load home data', error: err });
   }
 });
+
+
+router.get('/login', async (req, res) => {
+  try {
+    res.render('login');
+  } 
+  catch (err) {
+    res.status(500).json({ message: 'Failed to load login page', error: err });
+  }
+});
+
+router.get('/register', async (req, res) => {
+  try {
+    res.render('register');
+  } 
+  catch (err) {
+    res.status(500).json({ message: 'Failed to load register page', error: err });
+  }
+});
+
+router.get('/form', async (req, res) => {
+  try {
+    res.render('form');
+  } 
+  catch (err) {
+    res.status(500).json({ message: 'Failed to load form page', error: err });
+  }
+});
+
+router.get('/watchlist', async (req, res) => {
+  try {
+    res.render('watchlist');
+  } 
+  catch (err) {
+    res.status(500).json({ message: 'Failed to load form page', error: err });
+  }
+});
+
 module.exports = router;
