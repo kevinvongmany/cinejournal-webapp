@@ -12,6 +12,13 @@ module.exports = {
   return moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
   },
 
+  times: (n, block) => {
+    var accum = '';
+    for(var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+  },
+
   format_amount: (amount) => {
     // format large numbers with commas
     return parseInt(amount).toLocaleString();
