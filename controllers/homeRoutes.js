@@ -42,7 +42,14 @@ router.get('/register', async (req, res) => {
 
 router.get('/form', async (req, res) => {
   try {
-    res.render('form');
+    // Fetch platform data
+    const platformData = await Platform.findAll();
+    const platforms = platformData.map((platform) => platform.get({ plain: true }));
+
+    res.render('form', {
+      platforms,
+      loggedIn: req.session.loggedIn 
+    });
   } 
   catch (err) {
     res.status(500).json({ message: 'Failed to load form page', error: err });
