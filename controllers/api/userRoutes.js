@@ -6,6 +6,7 @@ const { Entry } = require('../../models');
 router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password'] }, // Exclude the password field
       include: [{ model: Entry }],
     });
 
