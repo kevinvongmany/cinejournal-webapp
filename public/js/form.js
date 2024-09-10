@@ -1,3 +1,5 @@
+const stars = new StarRating('.gl-star-rating--stars');
+
 const FormHandler = async (event) => {
     event.preventDefault();
   
@@ -5,6 +7,7 @@ const FormHandler = async (event) => {
     const watchedDate = document.querySelector('#watched-date').value.trim();
     const platform = document.querySelector('#platform').value.trim();
     const rating = document.querySelector('#rating').value.trim();
+  
   
     if (mediaTitle && rating > 0) {
       const mediaData = {
@@ -23,7 +26,7 @@ const FormHandler = async (event) => {
   
         if (response.ok) {
           localStorage.setItem(mediaTitle, JSON.stringify(mediaData));
-          document.location.replace('/watchlist');
+          document.location.replace('/');
         } else {
           alert('Failed to submit form. Please try again.');
         }

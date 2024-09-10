@@ -1,10 +1,3 @@
-/* Ensure the body takes up the full height of the screen */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Merriweather Sans', sans-serif; /* Default font for the whole page */
-}
 
 /* Container for form and other content */
 .container-custom {
@@ -16,56 +9,10 @@ html, body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Add padding to the form container */
-.mt-4 {
-    padding: 15px; /* Add padding to the top content */
-}
-
-/* Add padding to the form fields */
-.form-group {
-    margin-bottom: 20px; /* Add space between form fields */
-}
-
-/* Adjust the button and form spacing */
-.btn {
-    background-color: #5a67d8;
-    color: white;
-    padding: 10px 20px; /* Padding around the button */
-}
-
-/* Profile header stays the same */
-.profile-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-    background-image: url('/assets/images/formbackground.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 150px;
-    color: white;
-}
-
-/* Add drop shadow to the Welcome heading */
-.profile-header p {
-    font-family: 'Merriweather', serif; /* Use Merriweather for the Welcome heading */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust the shadow size and color */
-}
-
-/* Profile picture adjustments */
-.profile-picture {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
 /* Style the Login heading */
-h1 {
+/* h1 {
     font-family: 'Merriweather', serif; /* Use Merriweather for the Login heading */
-}
+/* } */
 
 /* Add padding on larger screens */
 @media (min-width: 576px) {

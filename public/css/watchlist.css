@@ -90,7 +90,7 @@ html, body {
 
 /* Style the Add New button */
 .bottom-section .btn {
-    background-color: #5a67d8;
+    background-color: #2d3e50;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -110,8 +110,8 @@ html, body {
     align-items: center;
     padding: 10px; /* Same padding as Add New button */
     border-radius: 5px;
-    border: 2px solid #5a67d8; /* Border with same color as Add New button */
-    color: #5a67d8; /* Font color matching Add New button */
+    border: 2px solid #2d3e50; /* Border with same color as Add New button */
+    color: #2d3e50; /* Font color matching Add New button */
     text-align: center;
     text-decoration: none;
     font-family: 'Merriweather Sans', sans-serif;
@@ -124,7 +124,7 @@ html, body {
 
 /* Hover effect for the log out button */
 .logout-link a:hover {
-    background-color: #5a67d8; /* Fill the button with color on hover */
+    background-color: #2d3e50; /* Fill the button with color on hover */
     color: white; /* Change font color to white on hover */
     text-decoration: none;
 }
