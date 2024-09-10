@@ -1,40 +1,41 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded');
-
-    const form = document.querySelector('form');
-    if (!form) {
-        console.error('Form element not found');
-        return;
-    }
-
-    const stars = new StarRating('.gl-star-rating--stars');
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); 
-
-        const mediaTitle = document.querySelector('#media-title').value;
-        const watchedDate = document.querySelector('#watched-date').value;
-        const platform = document.querySelector('#platform').value;
-        const rating = document.querySelector('#rating').value;
-
-        console.log(rating);
-
-        if (mediaTitle && rating > 0) {
-            const mediaData = {
-                name: mediaTitle,
-                date: watchedDate,
-                platform: platform,
-                rating: rating,
-            };
-
-            localStorage.setItem(mediaTitle, JSON.stringify(mediaData));
-
-            console.log(`Media: ${mediaData.name}, Date of Watching: ${mediaData.date}, Platform: ${mediaData.platform}, Rating: ${mediaData.rating}`);
-
-            form.reset();
-            
+const FormHandler = async (event) => {
+    event.preventDefault();
+  
+    const mediaTitle = document.querySelector('#media-title').value.trim();
+    const watchedDate = document.querySelector('#watched-date').value.trim();
+    const platform = document.querySelector('#platform').value.trim();
+    const rating = document.querySelector('#rating').value.trim();
+  
+    if (mediaTitle && rating > 0) {
+      const mediaData = {
+        media_title: mediaTitle,
+        watched_ts: watchedDate,
+        // platform: platform,
+        rating: rating,
+      };
+  
+      try {
+        const response = await fetch('/api/entries', {
+          method: 'POST',
+          body: JSON.stringify(mediaData),
+          headers: { 'Content-Type': 'application/json' },
+        });
+  
+        if (response.ok) {
+          localStorage.setItem(mediaTitle, JSON.stringify(mediaData));
+          document.location.replace('/watchlist');
         } else {
-            alert('Please enter a movie name and provide a rating for submission!');
+          alert('Failed to submit form. Please try again.');
         }
-    });
-});
+      } catch (error) {
+        console.error('Error:', error);
+        alert('There was an error submitting the form. Please try again.');
+      }
+    } else {
+      alert('Please enter a movie name and provide a rating for submission!');
+    }
+  };
+  
+  document
+    .querySelector('form')
+    .addEventListener('submit', FormHandler);
