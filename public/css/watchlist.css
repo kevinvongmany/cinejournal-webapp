@@ -16,7 +16,6 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* min-height: 100vh; Makes the container fill the height of the viewport */
 }
 
 /* Profile header remains the same */
@@ -31,7 +30,7 @@ html, body {
     width: 100%;
     height: 150px;
     color: white;
-    font-family: 'Merriweather', serif; /* Use the same font for headers */
+    font-family: 'Merriweather', serif;
 }
 
 .profile-picture {
@@ -44,16 +43,19 @@ html, body {
 /* Media list container */
 .media-list {
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next row */
+    justify-content: space-between;
 }
 
 /* Individual media card styling */
 .media-card {
     background-color: #f8f9fa;
     padding: 15px;
-    max-width: 300px;
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width on mobile */
 }
 
 /* Media card titles and details */
@@ -61,7 +63,7 @@ html, body {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 5px;
-    font-family: 'Merriweather', serif; /* Apply Merriweather for titles */
+    font-family: 'Merriweather', serif;
 }
 
 .star-styling {
@@ -75,61 +77,81 @@ html, body {
     margin-bottom: 5px;
     font-size: 14px;
     color: #555;
-    font-family: 'Merriweather Sans', sans-serif; /* Apply Merriweather Sans for details */
+    font-family: 'Merriweather Sans', sans-serif;
 }
 
 /* Bottom section containing the Add New button and Log Out link */
 .bottom-section {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Default column layout for mobile */
+    gap: 10px; /* Space between buttons */
 }
 
 /* Style the Add New button */
 .bottom-section .btn {
     background-color: #5a67d8;
     color: white;
-    width: 100%;
     padding: 10px;
     border-radius: 5px;
-    font-family: 'Merriweather Sans', sans-serif; /* Ensure the button text matches other buttons */
+    font-family: 'Merriweather Sans', sans-serif;
+    width: 100%; /* Full width on mobile */
+    border: none; /* No border for the solid Add New button */
+    height: 45px; /* Set consistent height for both buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Ensure the text stays vertically centered */
 }
 
-/* Style the log out link */
-.logout-link {
-    text-align: center;
-    margin-top: 10px;
-}
-
+/* Style the log out link to look like an outlined button */
 .logout-link a {
-    color: #5a67d8;
-    font-weight: bold;
+    display: flex; /* Ensure it behaves like a button */
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Same padding as Add New button */
+    border-radius: 5px;
+    border: 2px solid #5a67d8; /* Border with same color as Add New button */
+    color: #5a67d8; /* Font color matching Add New button */
+    text-align: center;
     text-decoration: none;
     font-family: 'Merriweather Sans', sans-serif;
+    font-weight: bold;
+    background-color: white; /* Keep background white for outlined button */
+    width: 100%; /* Full width on mobile */
+    height: 45px; /* Set consistent height for both buttons */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width */
 }
 
+/* Hover effect for the log out button */
 .logout-link a:hover {
-    text-decoration: underline;
+    background-color: #5a67d8; /* Fill the button with color on hover */
+    color: white; /* Change font color to white on hover */
+    text-decoration: none;
 }
 
-/* Yellow stars for ratings */
-.gl-star-rating--stars option:checked ~ .gl-star-rating--stars label:before {
-    color: yellow !important;
-}
-
-.gl-star-rating--stars option:checked {
-    color: yellow !important;
-}
-
-.gl-star-rating--stars:hover label:before {
-    color: yellow !important;
-}
-
-/* Adjustments for different screen sizes */
-@media (min-width: 576px) {
-    .container-custom {
-        padding: 30px;
-        max-width: 375px;
+/* Adjustments for larger screen sizes */
+@media (min-width: 768px) {
+    .media-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
+
     .media-card {
-        padding: 20px;
+        width: 45%; /* Take 45% of the width on larger screens */
+        margin-right: 5%; /* Space between cards */
+        margin-bottom: 20px;
+    }
+
+    /* Side-by-side layout for buttons on full-width screens */
+    .bottom-section {
+        flex-direction: row; /* Change to row layout for larger screens */
+        justify-content: space-between; /* Ensure buttons are spaced evenly */
+        gap: 0; /* Remove gap since space-between will handle spacing */
+    }
+
+    .bottom-section .btn, .logout-link a {
+        width: 48%; /* Make each button take half of the available space */
+        height: 45px; /* Set consistent height for both buttons */
     }
 }
