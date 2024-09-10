@@ -9,3 +9,53 @@ header {
   left: 50%;
   transform: translateX(-50%);
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  background-image: url('/assets/images/formbackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150px;
+  color: white;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-header p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+  color: white;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.mt-4 {
+  padding: 15px; /* Add padding to the top content */
+}
+
+.rating {
+  margin-top: 20px;
+}

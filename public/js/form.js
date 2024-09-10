@@ -6,6 +6,7 @@ const FormHandler = async (event) => {
     const platform = document.querySelector('#platform').value.trim();
     const rating = document.querySelector('#rating').value.trim();
   
+  
     if (mediaTitle && rating > 0) {
       const mediaData = {
         media_title: mediaTitle,
