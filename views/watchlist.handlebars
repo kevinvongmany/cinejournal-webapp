@@ -9,6 +9,7 @@
         <!-- Media List (media cards will be populated here by JavaScript) -->
         <div class="media-list mt-4">
             {{!-- loop --}}
+            {{#each entriesData as |entry|}}
             <div class="media-card">
 
                 {{!-- replace Title with handlebars data --}}
@@ -33,6 +34,7 @@
             </div>
             
             {{!-- loop end --}}
+            {{/each}}
         </div>
 
         <!-- Add New and Log Out section -->
