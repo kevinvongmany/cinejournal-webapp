@@ -1,7 +1,11 @@
+const moment = require('moment');
+
+
 module.exports = {
   format_date: (date) => {
     // Format date as MM/DD/YYYY
-    return date.toLocaleDateString();
+    // use moment.js to convert this date format 2024-09-05 19:06:48.84+10 to 09/05/2024
+    return moment(date).format('MM/DD/YYYY');
   },
   format_amount: (amount) => {
     // format large numbers with commas
