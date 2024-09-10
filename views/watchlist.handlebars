@@ -13,11 +13,12 @@
             <div class="media-card">
 
                 {{!-- replace Title with handlebars data --}}
-                <h5 class="media-title">Title</h5> 
+                <h5 class="media-title">{{entry.media_title}}</h5> 
                 {{!-- replace Netflix with hbars data --}}
-                <p class="media-details">Watched on: Netflix</p>
+                <p class="media-details">Watched on: {{entry.platform_id}}</p>
                 {{!-- replace date --}}
-                <p class="media-details">Date: 20/09/2024</p>
+
+                <p class="media-details">Date: {{entry.watched_ts}}</p>
                 <div class="media-details">
                     {{!-- figure this out later --}}
                     <label>Rating:</label>
