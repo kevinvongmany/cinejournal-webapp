@@ -13,7 +13,8 @@ router.get('/', withAuth,async (req, res) => {
     const entriesData = entries.map((entry) => entry.get({ plain: true }));
     // Render a combined JSON response with all data
     res.render('watchlist', {
-      entriesData
+      entriesData,
+      loggedIn: req.session.loggedIn 
     });
   } 
   catch (err) {
