@@ -35,6 +35,7 @@ router.post('/register', async (req, res) => {
   try {
     const newUser = await User.create(req.body);
 
+
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
@@ -43,7 +44,11 @@ router.post('/register', async (req, res) => {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: 'Failed to register user', error: err });
+    if (err.errors[0].message === 'email must be unique') {
+      res.status(400).json({ message: 'User already exists with that email' });
+    } else {
+      res.status(500).json({ message: 'Failed to register user', error: err });
+    }
   }
 });
 
