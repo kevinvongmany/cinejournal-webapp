@@ -58,10 +58,18 @@ router.get('/form', async (req, res) => {
 
 router.get('/watchlist', async (req, res) => {
   try {
-    res.render('watchlist');
+    // Fetch platform data from the database
+    const platformData = await Platform.findAll();
+    const platforms = platformData.map((platform) => platform.get({ plain: true }));
+
+    // Render the watchlist page and pass the platform data
+    res.render('watchlist', {
+      platforms,
+      loggedIn: req.session.loggedIn
+    });
   } 
   catch (err) {
-    res.status(500).json({ message: 'Failed to load form page', error: err });
+    res.status(500).json({ message: 'Failed to load watchlist page', error: err });
   }
 });
 
