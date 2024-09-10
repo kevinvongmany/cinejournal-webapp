@@ -1,3 +1,5 @@
+const stars = new StarRating('.gl-star-rating--stars');
+
 const FormHandler = async (event) => {
     event.preventDefault();
   
