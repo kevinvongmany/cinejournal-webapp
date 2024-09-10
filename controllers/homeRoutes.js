@@ -13,7 +13,8 @@ router.get('/', withAuth,async (req, res) => {
     const entriesData = entries.map((entry) => entry.get({ plain: true }));
     // Render a combined JSON response with all data
     res.render('watchlist', {
-      entriesData
+      entriesData,
+      logged_in: req.session.loggedIn 
     });
   } 
   catch (err) {
@@ -48,7 +49,7 @@ router.get('/form', async (req, res) => {
 
     res.render('form', {
       platforms,
-      loggedIn: req.session.loggedIn 
+      logged_in: req.session.loggedIn 
     });
   } 
   catch (err) {
@@ -65,7 +66,7 @@ router.get('/watchlist', async (req, res) => {
     // Render the watchlist page and pass the platform data
     res.render('watchlist', {
       platforms,
-      loggedIn: req.session.loggedIn
+      logged_in: req.session.loggedIn
     });
   } 
   catch (err) {
