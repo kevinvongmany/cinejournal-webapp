@@ -26,7 +26,7 @@ const FormHandler = async (event) => {
   
         if (response.ok) {
           localStorage.setItem(mediaTitle, JSON.stringify(mediaData));
-          document.location.replace('/watchlist');
+          document.location.replace('/');
         } else {
           alert('Failed to submit form. Please try again.');
         }
