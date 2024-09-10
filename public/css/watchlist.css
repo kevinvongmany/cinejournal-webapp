@@ -7,7 +7,7 @@ html, body {
 }
 
 .container-custom {
-    max-width: 375px;
+    min-width: 90%;
     margin: 20px auto;
     background-color: white;
     padding: 20px;
@@ -50,6 +50,7 @@ html, body {
 .media-card {
     background-color: #f8f9fa;
     padding: 15px;
+    max-width: 300px;
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -126,5 +127,9 @@ html, body {
 @media (min-width: 576px) {
     .container-custom {
         padding: 30px;
+        max-width: 375px;
+    }
+    .media-card {
+        padding: 20px;
     }
 }
