@@ -5,14 +5,14 @@ const FormHandler = async (event) => {
   
     const mediaTitle = document.querySelector('#media-title').value.trim();
     const watchedDate = document.querySelector('#watched-date').value.trim();
-    const platformName = document.querySelector('#platform').value.trim();
+    const platformId = document.querySelector('#platform').value.trim();
     const rating = document.querySelector('#rating').value.trim();
 
     if (mediaTitle && rating > 0) {
       const mediaData = {
         media_title: mediaTitle,
         watched_ts: watchedDate,
-        platform: platformName,
+        platform_id: platformId,
         rating: rating,
       };
       console.log(mediaData);
