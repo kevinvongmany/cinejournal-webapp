@@ -103,12 +103,15 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
-        gap: 5%;
+        gap: 10%;
+        max-width: 1200px;
+        width:100%;
+        margin:auto;
     }
 
     .media-card {
         width: 45%; /* Take 45% of the width on larger screens */
-        margin-right: 5%; /* Space between cards */
+        /* margin-right: 5%; Space between cards */
         margin-bottom: 20px;
     }
 
@@ -117,10 +120,15 @@
         flex-direction: row; /* Change to row layout for larger screens */
         justify-content: space-between; /* Ensure buttons are spaced evenly */
         gap: 0; /* Remove gap since space-between will handle spacing */
+        max-width:1200px;
+        width:100%;
+        margin:auto;
     }
 
     .bottom-section .btn, .logout {
-        width: 48%; /* Make each button take half of the available space */
+        width: 50%; /* Make each button take half of the available space */
         height: 45px; /* Set consistent height for both buttons */
     }
+
+
 }
