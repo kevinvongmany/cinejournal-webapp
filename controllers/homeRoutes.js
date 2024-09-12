@@ -44,11 +44,16 @@ router.get("/form", async (req, res) => {
   try {
     // Fetch platform data
     const platformData = await Platform.findAll();
+    const userData = await User.findByPk(req.session.user_id,{
+      attributes: { exclude: ["password"] },
+    });
     const platforms = platformData.map((platform) =>
       platform.get({ plain: true })
     );
+    const user=userData.get({plain:true});
 
     res.render("form", {
+      user,
       platforms,
       logged_in: req.session.loggedIn,
     });
