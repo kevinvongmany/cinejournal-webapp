@@ -5,20 +5,16 @@ const withAuth = require("../utils/auth");
 // Home Route (GET /)
 router.get("/", withAuth, async (req, res) => {
   try {
-    // Fetch all users, platforms, and entries from the database
+    // Fetch user data from the database with associated entries and platforms
     const users = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [{ model: Entry, include: {model: Platform, attributes:['name']} }],
     });
-    const platforms = await Platform.findAll();
-    const entries = await Entry.findAll();
 
-    const entriesData = entries.map((entry) => entry.get({ plain: true }));
     const usersData = users.get({ plain: true });
-    console.log(usersData.entries);
     // Render a combined JSON response with all data
     res.render("watchlist", {
-      entriesData,
+      usersData,
       logged_in: req.session.loggedIn,
     });
   } catch (err) {
