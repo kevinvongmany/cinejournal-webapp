@@ -25,6 +25,9 @@ const { Platform } = require('../../models');
 // Create a new entry (POST /api/entries)
 router.post('/', async (req, res) => {
   try {
+    if (!req.body.platform_id){
+      req.body.platform_id = null;
+    }
     const newEntry = await Entry.create({
       ...req.body,
       user_id: req.session.user_id,
