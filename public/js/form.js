@@ -5,24 +5,24 @@ const FormHandler = async (event) => {
   
     const mediaTitle = document.querySelector('#media-title').value.trim();
     const watchedDate = document.querySelector('#watched-date').value.trim();
-    const platform = document.querySelector('#platform').value.trim();
+    const platformName = document.querySelector('#platform').value.trim();
     const rating = document.querySelector('#rating').value.trim();
-  
-  
+
     if (mediaTitle && rating > 0) {
       const mediaData = {
         media_title: mediaTitle,
         watched_ts: watchedDate,
-        // platform: platform,
+        platform: platformName,
         rating: rating,
       };
-  
+      console.log(mediaData);
       try {
         const response = await fetch('/api/entries', {
           method: 'POST',
           body: JSON.stringify(mediaData),
           headers: { 'Content-Type': 'application/json' },
         });
+        console.log(response);
   
         if (response.ok) {
           localStorage.setItem(mediaTitle, JSON.stringify(mediaData));
