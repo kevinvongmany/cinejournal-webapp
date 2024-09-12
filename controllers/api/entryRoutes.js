@@ -25,15 +25,10 @@ const { Platform } = require('../../models');
 // Create a new entry (POST /api/entries)
 router.post('/', async (req, res) => {
   try {
-    const entryData = {media_title: req.body.media_title, watched_ts: req.body.watched_ts, rating: req.body.rating};
-    console.log(entryData);
-    const platformData = await Platform.findOne({ where: { name: req.body.platform } });
-    if (platformData) {
-      entryData.platform_id = platformData.id;
-    }
-    entryData.user_id = req.session.user_id;
-    console.log(entryData);
-    const newEntry = await Entry.create(entryData);
+    const newEntry = await Entry.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
     res.status(200).json(newEntry);
   } catch (err) {
     console.log(err);
