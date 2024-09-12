@@ -6,7 +6,8 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth,async (req, res) => {
   try {
     // Fetch all users, platforms, and entries from the database
-    const users = await User.findAll();
+    const users = await User.findByPk(req.session.user_id, { attributes: { exclude: ['password'] }, include: [{ model: Entry, include: Platform }] });
+    console.log(users);
     const platforms = await Platform.findAll();
     const entries = await Entry.findAll();
 
