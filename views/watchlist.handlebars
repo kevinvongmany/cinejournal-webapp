@@ -13,7 +13,9 @@
                 {{!-- replace Title with handlebars data --}}
                 <h5 class="media-title">{{entry.media_title}}</h5> 
                 {{!-- replace Netflix with hbars data --}}
+                {{#if entry.platform.name}}
                 <p class="media-details">Watched on: {{entry.platform.name}}</p>
+                {{/if}}
                 {{!-- replace date --}}
 
                 <p class="media-details">Date: {{format_date entry.watched_ts}}</p>
