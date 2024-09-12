@@ -7,11 +7,12 @@ router.get('/', withAuth,async (req, res) => {
   try {
     // Fetch all users, platforms, and entries from the database
     const users = await User.findByPk(req.session.user_id, { attributes: { exclude: ['password'] }, include: [{ model: Entry, include: Platform }] });
-    console.log(users);
     const platforms = await Platform.findAll();
     const entries = await Entry.findAll();
 
     const entriesData = entries.map((entry) => entry.get({ plain: true }));
+    const usersData = users.get({ plain: true });
+    console.log(usersData);
     // Render a combined JSON response with all data
     res.render('watchlist', {
       entriesData,
