@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
     });
     res.status(200).json(newEntry);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).json({ message: 'Failed to create entry', error: err });
   }
 });
@@ -45,6 +45,7 @@ router.get('/', async (req, res) => {
     const entryData = await Entry.findAll();
     res.status(200).json(entryData);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: 'Failed to get entries', error: err });
   }
 });
@@ -61,6 +62,7 @@ router.get('/:id', async (req, res) => {
 
     res.status(200).json(entryData);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: 'Failed to get entry', error: err });
   }
 });
@@ -79,6 +81,7 @@ router.put('/:id', async (req, res) => {
 
     res.status(200).json({ message: 'Entry updated successfully' });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: 'Failed to update entry', error: err });
   }
 });
@@ -97,6 +100,7 @@ router.delete('/:id', async (req, res) => {
 
     res.status(200).json({ message: 'Entry deleted successfully' });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: 'Failed to delete entry', error: err });
   }
 });
