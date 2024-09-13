@@ -45,7 +45,7 @@ router.get("/register", async (req, res) => {
   }
 });
 
-router.get("/form", async (req, res) => {
+router.get("/form", withAuth, async (req, res) => {
   try {
     // Fetch platform data
     const platformData = await Platform.findAll();
@@ -68,25 +68,34 @@ router.get("/form", async (req, res) => {
   }
 });
 
-router.get("/watchlist", async (req, res) => {
-  try {
-    // Fetch platform data from the database
-    const platformData = await Platform.findAll();
-    const platforms = platformData.map((platform) =>
-      platform.get({ plain: true })
-    );
+// router.get("/watchlist", withAuth, async (req, res) => {
+//   try {
+//     // Fetch platform data from the database
+//     const platformData = await Platform.findAll();
+//     const platforms = platformData.map((platform) =>
+//       platform.get({ plain: true })
+//     );
+//     // Render the watchlist page and pass the platform data
+//     res.render("watchlist", {
+//       platforms,
+//       logged_in: req.session.loggedIn,
+//     });
+//   } catch (err) {
+//     res
+//       .status(500)
+//       .json({ message: "Failed to load watchlist page", error: err });
+//   }
+// });
 
-    // Render the watchlist page and pass the platform data
-    res.render("watchlist", {
-      platforms,
-      logged_in: req.session.loggedIn,
-    });
-  } catch (err) {
-    console.error(err);
-    res
-      .status(500)
-      .json({ message: "Failed to load watchlist page", error: err });
-  }
+// Logout Route (GET /logout)
+router.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).json({ message: "Failed to log out", error: err });
+    }
+    // Redirect to the login page after logging out
+    res.redirect("/login");
+  });
 });
 
 module.exports = router;
