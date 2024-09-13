@@ -8,7 +8,10 @@ router.get("/", withAuth, async (req, res) => {
     // Fetch user data from the database with associated entries and platforms
     const users = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Entry, include: {model: Platform, attributes:['name']} }],
+      include: [
+        { model: Entry, include: { model: Platform, attributes: ["name"] } },
+      ],
+      order: [[Entry, "created_at", "DESC"]],
     });
 
     const usersData = users.get({ plain: true });
@@ -18,6 +21,7 @@ router.get("/", withAuth, async (req, res) => {
       logged_in: req.session.loggedIn,
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Failed to load home data", error: err });
   }
 });
@@ -26,6 +30,7 @@ router.get("/login", async (req, res) => {
   try {
     res.render("login");
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Failed to load login page", error: err });
   }
 });
@@ -44,13 +49,13 @@ router.get("/form", async (req, res) => {
   try {
     // Fetch platform data
     const platformData = await Platform.findAll();
-    const userData = await User.findByPk(req.session.user_id,{
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
     });
     const platforms = platformData.map((platform) =>
       platform.get({ plain: true })
     );
-    const user=userData.get({plain:true});
+    const user = userData.get({ plain: true });
 
     res.render("form", {
       user,
@@ -58,6 +63,7 @@ router.get("/form", async (req, res) => {
       logged_in: req.session.loggedIn,
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Failed to load form page", error: err });
   }
 });
@@ -76,6 +82,7 @@ router.get("/watchlist", async (req, res) => {
       logged_in: req.session.loggedIn,
     });
   } catch (err) {
+    console.error(err);
     res
       .status(500)
       .json({ message: "Failed to load watchlist page", error: err });
