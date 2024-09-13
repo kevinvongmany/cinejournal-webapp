@@ -40,7 +40,7 @@ router.get("/register", async (req, res) => {
   }
 });
 
-router.get("/form", async (req, res) => {
+router.get("/form", withAuth, async (req, res) => {
   try {
     // Fetch platform data
     const platformData = await Platform.findAll();
@@ -62,7 +62,7 @@ router.get("/form", async (req, res) => {
   }
 });
 
-router.get("/watchlist", async (req, res) => {
+router.get("/watchlist", withAuth, async (req, res) => {
   try {
     // Fetch platform data from the database
     const platformData = await Platform.findAll();
@@ -80,6 +80,19 @@ router.get("/watchlist", async (req, res) => {
       .status(500)
       .json({ message: "Failed to load watchlist page", error: err });
   }
+});
+
+// Logout Route (GET /logout)
+router.get("/logout", (req, res) => {
+  // Destroy the session
+  req.session.destroy((err) => {
+    if (err) {
+      // Handle the error if the session couldn't be destroyed
+      return res.status(500).json({ message: "Failed to log out", error: err });
+    }
+    // Redirect to the login page after logging out
+    res.redirect("/login");
+  });
 });
 
 module.exports = router;
