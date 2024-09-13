@@ -84,10 +84,8 @@ router.get("/watchlist", withAuth, async (req, res) => {
 
 // Logout Route (GET /logout)
 router.get("/logout", (req, res) => {
-  // Destroy the session
   req.session.destroy((err) => {
     if (err) {
-      // Handle the error if the session couldn't be destroyed
       return res.status(500).json({ message: "Failed to log out", error: err });
     }
     // Redirect to the login page after logging out
