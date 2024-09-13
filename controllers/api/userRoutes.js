@@ -25,7 +25,10 @@ router.get('/:id', async (req, res) => {
 // Get all users (GET /api/users)
 router.get('/', async (req, res) => {
   try {
-    const userData = await User.findAll();
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] } // Exclude the password field
+    });
+
     res.status(200).json(userData);
   } catch (err) {
     console.error(err);
