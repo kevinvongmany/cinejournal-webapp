@@ -15,21 +15,20 @@ const FormHandler = async (event) => {
         platform_id: platformId,
         rating: rating,
       };
-      console.log(mediaData);
       try {
         const response = await fetch('/api/entries', {
           method: 'POST',
           body: JSON.stringify(mediaData),
           headers: { 'Content-Type': 'application/json' },
         });
-        console.log(response);
-  
+
         if (response.ok) {
           localStorage.setItem(mediaTitle, JSON.stringify(mediaData));
           document.location.replace('/');
         } else {
           alert('Failed to submit form. Please try again.');
         }
+        
       } catch (error) {
         console.error('Error:', error);
         alert('There was an error submitting the form. Please try again.');
