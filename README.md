@@ -53,9 +53,20 @@ git clone https://github.com/kevinvongmany/cinejournal-webapp
 # Navigate to the project directory
 cd cinejournal-webapp
 
-# Install dependencies
+# Install deps
 npm install
+
+# Create DB
+psql -U <your_user> -f db/schema.sql # you must login to your postgres db
+
+# Seed your data
+npm run seed
+
+# Run dev environment
+npm run start
 ```
+
+A dev instance of the application should be available at http://localhost:3001/
 
 ## Features
 
