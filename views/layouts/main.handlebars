@@ -27,6 +27,13 @@
       <h1>
         <a href="/">CineJournal</a>
       </h1>
+     
+        {{#if logged_in}}
+        <div class="my-auto text-center"> 
+          <a href="/logout" class="btn btn-primary">Log Out</a>
+        </div>
+        {{/if}}
+      
     </header>
 
         <div class="profile-header">
@@ -45,13 +52,6 @@
       <!-- Render the sub layout -->
       {{{ body }}}
   </div>
-
-  
-    <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-
 </body>
 
 </html>
