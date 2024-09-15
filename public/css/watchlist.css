@@ -125,10 +125,4 @@
         margin:auto;
     }
 
-    .bottom-section .btn, .logout {
-        width: 50%; /* Make each button take half of the available space */
-        height: 45px; /* Set consistent height for both buttons */
-    }
-
-
 }
