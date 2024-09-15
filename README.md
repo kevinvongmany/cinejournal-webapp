@@ -1,35 +1,48 @@
 # Project 2: Interactive Full-Stack Application
-## CineJournal App
-
 Projects play a key role in your journey to becoming a full-stack web developer. As you enter the last phase of the boot camp, you’ll begin to apply for development jobs. If you want to land interviews, your portfolio must feature high-quality deployed examples of your work—-and you can use your finished projects for that very purpose.
 
 As your first opportunity to show employers your collaborative skills and coding abilities, this particular project will be a focal point of your portfolio. Employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
 
-## Authored by Group 4 
+## CineJournal Web-App
+### Authored by Group 4 
 [Kevin](https://github.com/kevinvongmany/), [Wendy](https://github.com/Wendyydxiao), [June](https://github.com/Lijujujune) & [Kate](https://github.com/KateHanSta17)
+
+> "CineJournal - Your digital diary to track, rate, and remember every movie and show you’ve watched & loved (or hated)!"
+
+### GitHub Repository
+* [cinejournal web-app Github](https://github.com/kevinvongmany/cinejournal-webapp)
+
+### Render Link
+* [CineJournal Render](https://cinejournal-webapp.onrender.com/)
+
+### Presentation Slide Deck
+* [Google Slides Presentation Deck](https://docs.google.com/presentation/d/1Bj0qHjcBjgfG8bgPua0K_Woulp7lCghDiQBMSCB6z1I/edit?usp=sharing)
 
 ## Description
 
 CineJournal is a digital journal to track your viewing history of Movies & Television Shows that you watch across multiple platforms; by title, date viewed, where viewed and rating.
 The app will save your viewed history, allow you to view and continue to add new media as you view your way through your watch list. 
-The app uses [packages] & [frameworks] further outlined belo and the UI/UX was designed using Miro.
+The app uses various [technologies](#technologies) further outlined below and the UI/UX was designed using Miro.
 
 ## Table of Contents
 
-- [Installation](#installation)
+- [Design](#example-user-journey)
 - [Usage](#usage)
 - [Features](#features)
 - [Technologies](#technologies)
-- [Contributing](#contributing)
+- [Project Requirements](#project-requirements)
 - [License](#license)
 
-## Installation
-
-Provide step-by-step instructions on how to set up and install the project on a local machine.
 
 ## Example User-Journey
+### Original Concept as designed in Miro
 ![Early Concept and UI design](./assets/images/cinejournal%20example.jpg)
 * [Link to original Miro Board](https://miro.com/app/board/uXjVKj-YzjQ=/)
+
+
+### Final CineJournal UI at Deployment:
+![Login View](./assets/images/view%20copy.jpg)
+
 
 ## Usage
 
@@ -40,113 +53,99 @@ git clone https://github.com/kevinvongmany/cinejournal-webapp
 # Navigate to the project directory
 cd cinejournal-webapp
 
-# Install dependencies
+# Install deps
 npm install
+
+# Create DB
+psql -U <your_user> -f db/schema.sql # you must login to your postgres db
+
+# Seed your data
+npm run seed
+
+# Run dev environment
+npm run start
 ```
+
+A dev instance of the application should be available at http://localhost:3001/
+
+## Features
+
+* Login / Account Creation
+* Enter & save media to a watchlist
+* Media is saved in account between visits 
+* Add new Media from the watchlist page 
+* Logout
+
+## Technologies
+
+cinejournal-webapp
+* bcrypt@5.1.1
+* connect-session-sequelize@7.1.7
+* dotenv@8.6.0
+* express-handlebars@5.3.5
+* express-session@1.18.0
+* express@4.19.2
+* moment@2.30.1
+* pg@8.12.0
+* sequelize@6.37.3
+* star-rating.js@4.3.1
 
 -----------------------------
 
-## User Stories
+## Project Requirements
+You and your group will use everything you’ve learned over the past six modules to create a real-world full-stack application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
 
-* As a user, I want to see a list of current projects seeking funding.
 
-* As a user, I want to be able to create an account.
+* Use Node.js and Express.js to create a RESTful API.
+* Use Handlebars.js as the template engine.
+* Use PostgreSQL and the Sequelize ORM for the database.
+* Have both GET and POST routes for retrieving and adding new data.
+* Use at least one new library, package, or technology that we haven’t discussed.
+* Have a folder structure that meets the MVC paradigm.
+* Include authentication (express-session and cookies).
+* Protect API keys and sensitive information with environment variables.
+* Be deployed using Render (with data).
+* Have a polished UI.
+* Be responsive.
+* Be interactive (i.e., accept and respond to user input).
+* Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+* Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
-* As a registered user, I want to post my own projects to ask for funding.
+## Grading Requirements
+This project is graded based on the following criteria:
 
-### Acceptance Criteria
+### Technical Acceptance Criteria: 25%
+* Satisfies the following code requirements:
+* Application uses a Node.js and Express.js back end and uses both GET and POST routes for retrieving and adding new data.
+* Application has a folder structure that meets the MVC paradigm and uses Handlebars.js as the template engine.
+* Application is backed by a PostgreSQL database with a Sequelize ORM and protects API keys and sensitive information with environment variables.
+* Application includes user authentication (express-session and cookies).
+* Application uses at least one new library, package, or technology not covered in class.
 
-* It's done when the `/` homepage route renders a list of all projects from the database.
+### Concept 10%
+* Application should be a unique and novel idea.
+* Your group should clearly and concisely articulate your project idea.
 
-* It's done when the `/project/:id` route renders an individual project's details based on the route parameter id.
+### Deployment: 20%
+* Application deployed at live URL on Render and loads with no errors.
+* Application GitHub URL submitted.
 
-* It's done when the `/login` route renders a form to log in and a form to create a new account.
+### Repository Quality: 10%
+* Repository has a unique name.
+* Repository follows best practices for file structure and naming conventions.
+* Repository follows best practices for class/id-naming conventions, indentation, quality comments, etc.
+* Repository contains multiple descriptive commit messages.
+* Repository contains quality README file with description, screenshot, and link to deployed application.
 
-* It's done when an existing user can enter their credentials on the login page to create a session on the server.
+### Application Quality: 15%
+* Application user experience is intuitive and easy to navigate.
+* Application user interface style is clean and polished.
+* Application is responsive.
 
-* It's done when a new user can create an account on the login page and then be immediately logged in with a session.
+### Presentation 10%
+* Your group should present using a slide deck.
+* Every group member should speak during the presentation.
+* Your presentation should follow the Project Presentation Template.
 
-* It's done when the `/profile` route renders the logged-in user's projects and a form to create a new project.
-
-* It's done when only a logged in user can visit the `/profile` route.
-
-* It's done when a logged in user is redirected to `/profile` when they try to visit `/login` again.
-
-* It's done when a user on the profile page can use the form to create a new project in the database.
-
-* It's done when a user on the profile page can select a "Delete" button to remove their project from the database.
-
-* It's done when a logged-in user can select a "Logout" button to remove their session.
-
-* It's done when the session for a logged-in user expires after a set time.
-
-* It's done when the API routes to create and delete posts are protected from non logged-in users.
-
-* It's done when the code is organized using MVC architecture.
-
-* It's done when the views are rendered with Handlebars.js templates.
-
-## Specifications
-
-* The database models have the following fields and associations:
-
-  * `User`
-
-    * `id`: primary key
-
-    * `name`
-
-    * `email`
-
-    * `password`
-
-  * `Project`
-
-    * `id`: primary key
-
-    * `name`
-
-    * `description`
-
-    * `date_created`
-
-    * `needed_funding`
-
-    * `user_id`: foreign key that references `User.id`
-
-  * Users have many projects, and projects belong to a user.
-
-    * If a user is deleted, all associated projects are also deleted.
-
----
-
-## Getting Started
-
-The following should be created for the Mini-Project:
-
-* Be sure to change the `.env.EXAMPLE` file to just `.env` and update the credentials correctly. 
-
-* Create a `Views` folder to setup the folder structure to follow the MVC paradigm.
-
-* Be sure to review over the [Express Handlebars](https://www.npmjs.com/package/express-handlebars) if you need a refresher on how to set up Handlebars for your `Views` folder. 
-
-* Consider the task based on the Acceptance Criteria. Which folder should you work to see data returning from an API call?
-
-## 💡 Hints
-
-* What tools can you use to test the existing API routes if you don't yet have a front end?
-
-* Where would you place the client-side JavaScript for capturing form data?
-
-* How can middleware help protect routes from non logged-in users?
-
-* How can Handlebars.js helpers (both built-in and custom) be used to render the desired results?
-
-## 🏆 Bonus
-
-If you have completed this activity, work through the following challenge with your partner to further your knowledge:
-
-* Add an `/edit/:id` route for logged in users to update their projects' details. Then deploy the app to Render!
-
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+### Collaboration 10%
+* There are no major disparities in the number of GitHub contributions between group members.
