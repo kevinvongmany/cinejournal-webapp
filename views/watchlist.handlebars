@@ -1,20 +1,13 @@
-    <link rel="stylesheet" href="/css/watchlist.css">
-        <div class="profile-header">
-            <img src="/assets/images/profile.png" alt="Profile Picture" class="profile-picture">
-            <p class="h5 mb-1">{{usersData.first_name}}'s Journal</p>
-        </div>
-       
-        <!-- Add New and Log Out section -->
-        <div class="bottom-section">
-            <a href="/form" class="btn btn-primary">Add New</a>
+     <!-- Media List (media cards will be populated here by JavaScript) -->
+        <div class="media-list">
+                     <!-- Add New and Log Out section -->
+        <div class="bottom-section mb-3">
+            <a href="/form" class="btn btn-primary px-4">Add New</a>
             {{!-- <div class="logout-link mt-2"> --}}
-            <a href="/login" class="btn btn-primary logout">Log Out</a>
         </div>
 
-        <!-- Media List (media cards will be populated here by JavaScript) -->
-        <div class="media-list mt-4">
             {{!-- loop --}}
-            {{#each usersData.entries as |entry|}}
+            {{#each user.entries as |entry|}}
             <div class="media-card">
 
                 {{!-- replace Title with handlebars data --}}
@@ -33,23 +26,9 @@
                         {{/times}}
                     </label>
                 {{log entries}}
-
-                    {{!-- <div class="gl-star-rating">
-                        <select class="gl-star-rating--stars" data-rating="5">
-                            <option value="1" selected="">1</option>
-                            <option value="2" selected="">2</option>
-                            <option value="3" selected="">3</option>
-                            <option value="4" selected="">4</option>
-                            <option value="5" selected="">5</option>
-                        </select>
-                    </div> --}}
                 </div>
             </div>
             
             {{!-- loop end --}}
             {{/each}}
         </div>
-
-
-
-    {{!-- <script src="/js/watchlist.js"></script> --}}

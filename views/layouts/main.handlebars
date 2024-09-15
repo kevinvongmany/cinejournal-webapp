@@ -27,17 +27,33 @@
       <h1>
         <a href="/">CineJournal</a>
       </h1>
+     
+        {{#if logged_in}}
+        <div class="my-auto text-center"> 
+          <a href="/logout" class="btn btn-primary">Log Out</a>
+        </div>
+        {{/if}}
+      
     </header>
+
+        <div class="profile-header">
+            <img src="/assets/images/profile.png" alt="Profile Picture" class="profile-picture">
+            <p class="h5 mb-1">
+            {{#if logged_in}}
+              {{user.first_name}}'s Journal
+            {{else}}
+            Welcome to CineJournal
+            {{/if}}
+            </p>
+        </div>
+       
+        <!-- Add New and Log Out section -->
+
       <!-- Render the sub layout -->
+     <div class="container mt-4">  
       {{{ body }}}
+    </div>  
   </div>
-
-  
-    <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-
 </body>
 
 </html>

@@ -14,11 +14,11 @@ router.get("/", withAuth, async (req, res) => {
       order: [[Entry, "created_at", "DESC"]],
     });
 
-    const usersData = users.get({ plain: true });
+    const user = users.get({ plain: true });
     // Render a combined JSON response with all data
     res.render("watchlist", {
-      usersData,
-      logged_in: req.session.loggedIn,
+      user,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.error(err);
@@ -60,32 +60,13 @@ router.get("/form", withAuth, async (req, res) => {
     res.render("form", {
       user,
       platforms,
-      logged_in: req.session.loggedIn,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Failed to load form page", error: err });
   }
 });
-
-// router.get("/watchlist", withAuth, async (req, res) => {
-//   try {
-//     // Fetch platform data from the database
-//     const platformData = await Platform.findAll();
-//     const platforms = platformData.map((platform) =>
-//       platform.get({ plain: true })
-//     );
-//     // Render the watchlist page and pass the platform data
-//     res.render("watchlist", {
-//       platforms,
-//       logged_in: req.session.loggedIn,
-//     });
-//   } catch (err) {
-//     res
-//       .status(500)
-//       .json({ message: "Failed to load watchlist page", error: err });
-//   }
-// });
 
 // Logout Route (GET /logout)
 router.get("/logout", (req, res) => {
