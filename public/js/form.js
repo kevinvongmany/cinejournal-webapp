@@ -26,15 +26,15 @@ const FormHandler = async (event) => {
           localStorage.setItem(mediaTitle, JSON.stringify(mediaData));
           document.location.replace('/');
         } else {
-          alert('Failed to submit form. Please try again.');
+          $('#submission-error').toast('show');
         }
         
       } catch (error) {
         console.error('Error:', error);
-        alert('There was an error submitting the form. Please try again.');
+        $('#submission-error').toast('show');
       }
     } else {
-      alert('Please enter a movie name and provide a rating for submission!');
+      $('#missing-fields').toast('show');
     }
   };
   

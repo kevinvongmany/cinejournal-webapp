@@ -42,5 +42,47 @@
         </form>
     </div>
 
+{{! handle errors by showing a toast }}
+<div
+  class="toast"
+  id="submission-error"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+  data-delay="10000"
+>
+  <div class="toast-header">
+    <i
+      class="bi bi-exclamation rounded mr-1"
+      style="font-size: 2rem; color: red;"
+    ></i>
+    <strong class="mr-auto">Error</strong>
+<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    An unexpected error occurred during form submission, please try again later.
+  </div>
+</div>
+
+<div
+  class="toast"
+  id="missing-fields"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+  data-delay="10000"
+>
+  <div class="toast-header">
+    <i
+      class="bi bi-exclamation rounded mr-1"
+      style="font-size: 2rem; color: red;"
+    ></i>
+    <strong class="mr-auto">Missing fields</strong>
+<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    There seems to be fields missing, please check your form and try again.
+  </div>
+</div>
 
 <script src="/js/form.js"></script>
