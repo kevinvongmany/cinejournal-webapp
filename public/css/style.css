@@ -53,7 +53,10 @@ html, body {
 }
 
 .mt-4 {
-  padding: 15px; /* Add padding to the top content */
+  padding: 15px;
+  max-width: 1200px;
+  width:95%;
+  margin:auto;
 }
 
 .rating {
