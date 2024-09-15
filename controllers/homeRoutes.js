@@ -68,25 +68,6 @@ router.get("/form", withAuth, async (req, res) => {
   }
 });
 
-// router.get("/watchlist", withAuth, async (req, res) => {
-//   try {
-//     // Fetch platform data from the database
-//     const platformData = await Platform.findAll();
-//     const platforms = platformData.map((platform) =>
-//       platform.get({ plain: true })
-//     );
-//     // Render the watchlist page and pass the platform data
-//     res.render("watchlist", {
-//       platforms,
-//       logged_in: req.session.loggedIn,
-//     });
-//   } catch (err) {
-//     res
-//       .status(500)
-//       .json({ message: "Failed to load watchlist page", error: err });
-//   }
-// });
-
 // Logout Route (GET /logout)
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
