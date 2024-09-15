@@ -1,22 +1,17 @@
 [
   {
-      "id": 1,
       "name": "Netflix"
   },
   {
-      "id": 2,
       "name": "Amazon Prime"
   },
   {
-      "id": 3,
       "name": "Hulu"
   },
   {
-      "id": 4,
       "name": "Disney+"
   },
   {
-    "id": 5,
     "name": "Others"
 }
 ]
